@@ -71,8 +71,8 @@ sub ExcelFmt {
 
     my ( $format_str, $number, $is_1904, $number_type, $want_subformats ) = @_;
 
-    # Return text strings without further formatting.
-    return $number unless $number =~ $qrNUMBER;
+    # Return undefined or text strings without further formatting.
+    return $number unless defined($number) && $number =~ $qrNUMBER;
 
     # Handle OpenOffice.org GENERAL format.
     $format_str = '@' if uc($format_str) eq "GENERAL";
